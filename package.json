@@ -1,0 +1,21 @@
+{
+  "name": "szakdoga",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "ethers": "^6.14.0",
+    "hardhat": "^2.24.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^1.4.0"
+  }
+}
