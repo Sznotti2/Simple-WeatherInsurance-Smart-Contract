@@ -34,6 +34,7 @@ contract WeatherContract is FunctionsClient, ConfirmedOwner {
     //Callback gas limit
     uint32 gasLimit = 300000;
 
+    // state variable to store the temperature
     uint256 public temp;
 
     // Event to log responses
@@ -77,6 +78,10 @@ contract WeatherContract is FunctionsClient, ConfirmedOwner {
         return s_lastRequestId;
     }
 
+    // Request sent to the Chainlink Functions network (Distributed Oracle Network)
+    // The Oracle nodes make the HTTP request to the Open Meteo API
+    // The response is sent back after consensus is reached
+
     /**
      * @notice Callback function for fulfilling a request
      * @param requestId The ID of the request to fulfill
@@ -97,7 +102,7 @@ contract WeatherContract is FunctionsClient, ConfirmedOwner {
         temp = abi.decode(response, (uint256)); // Decode the response to get the temperature
 
         //! Log the response (hardhat console.log)
-        console.log("Response: %s, temperature: %o", string(response), temp);
+        console.log("Temperature: %o", temp);
 
         // Emit an event to log the response
         emit Response(requestId, temp, s_lastResponse, s_lastError);
